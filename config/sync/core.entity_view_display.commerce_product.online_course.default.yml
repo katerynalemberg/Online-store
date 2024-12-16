@@ -1,0 +1,62 @@
+uuid: c0b80923-2542-405c-b2c1-1d5dd574b3c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.online_course
+    - field.field.commerce_product.online_course.field_area
+    - field.field.commerce_product.online_course.field_description
+    - field.field.commerce_product.online_course.field_tag
+  module:
+    - commerce_product
+    - options
+    - text
+id: commerce_product.online_course.default
+targetEntityType: commerce_product
+bundle: online_course
+mode: default
+content:
+  field_area:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_tag:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -5
+    region: content
+  variations:
+    type: commerce_add_to_cart
+    label: above
+    settings:
+      combine: true
+    third_party_settings: {  }
+    weight: 10
+    region: content
+hidden:
+  created: true
+  stores: true
+  uid: true

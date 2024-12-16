@@ -1,0 +1,13 @@
+uuid: d9dca310-c866-43ba-8546-0a9dc0da17bf
+langcode: en
+status: true
+dependencies: {  }
+id: online_course
+label: 'Online course'
+traits: {  }
+locked: false
+description: 'An online course allows users to undergo online training with the opportunity to receive a certificate upon successful completion. '
+variationTypes:
+  - default
+multipleVariations: true
+injectVariationFields: true

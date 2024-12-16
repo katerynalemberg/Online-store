@@ -1,0 +1,21 @@
+uuid: ac5338f2-d410-4e02-8ff2-2b7e784614ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.online_course
+    - field.storage.commerce_product.field_area
+id: commerce_product.online_course.field_area
+field_name: field_area
+entity_type: commerce_product
+bundle: online_course
+label: Area
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Medical
+  off_label: Non-medical
+field_type: boolean
