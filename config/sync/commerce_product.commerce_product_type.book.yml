@@ -1,0 +1,14 @@
+uuid: 3fd54134-923b-4b16-9fec-203dd4869634
+langcode: en
+status: true
+dependencies: {  }
+id: book
+label: Book
+traits: {  }
+locked: false
+description: ''
+variationTypes:
+  - digital_book
+  - physical_book
+multipleVariations: true
+injectVariationFields: true

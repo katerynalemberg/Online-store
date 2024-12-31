@@ -1,0 +1,19 @@
+uuid: 99af15a4-ff73-4342-9b96-834aaf1b4c91
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.digital_book
+    - field.storage.commerce_product_variation.field_eula
+id: commerce_product_variation.digital_book.field_eula
+field_name: field_eula
+entity_type: commerce_product_variation
+bundle: digital_book
+label: EULA
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

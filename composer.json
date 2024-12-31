@@ -23,6 +23,8 @@
         "drupal/core-project-message": "^11.0",
         "drupal/core-recommended": "^11.0",
         "drupal/gin": "^3.0@RC",
+        "drupal/physical": "^1.5",
+        "drupal/quiz": "^7.0"
     },
     "conflict": {
         "drupal/drupal": "*"

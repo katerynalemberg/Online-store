@@ -1,0 +1,10 @@
+uuid: e326f102-a1a3-4280-8e49-3f2e6c9241ca
+langcode: en
+status: true
+dependencies: {  }
+id: online_course
+label: 'Online course'
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: null
