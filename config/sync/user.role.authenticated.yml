@@ -13,6 +13,8 @@ dependencies:
     - contact
     - file
     - filter
+    - media
+    - quiz
     - search
     - shortcut
     - system
@@ -26,6 +28,7 @@ permissions:
   - 'access checkout'
   - 'access comments'
   - 'access content'
+  - 'access quiz'
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'delete own files'
@@ -34,5 +37,8 @@ permissions:
   - 'search content'
   - 'skip comment approval'
   - 'use text format basic_html'
+  - 'view any quiz'
   - 'view commerce_product'
+  - 'view media'
   - 'view own commerce_order'
+  - 'view own quiz_result'

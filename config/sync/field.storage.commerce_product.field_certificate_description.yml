@@ -1,0 +1,20 @@
+uuid: 0d222be0-1408-4a3a-a7d5-e8807a6e8044
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - text
+id: commerce_product.field_certificate_description
+field_name: field_certificate_description
+entity_type: commerce_product
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

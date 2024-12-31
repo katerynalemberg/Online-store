@@ -1,4 +1,4 @@
-uuid: d9dca310-c866-43ba-8546-0a9dc0da17bf
+uuid: e146d6c9-eb37-4e20-8678-5c1f5b65ab27
 langcode: en
 status: true
 dependencies: {  }
@@ -6,8 +6,8 @@ id: online_course
 label: 'Online course'
 traits: {  }
 locked: false
-description: 'An online course allows users to undergo online training with the opportunity to receive a certificate upon successful completion. '
+description: 'Course allows the user to complete training online with the subsequent possibility of receiving a certificate of successful completion of the course.'
 variationTypes:
-  - default
+  - online_course
 multipleVariations: true
 injectVariationFields: true

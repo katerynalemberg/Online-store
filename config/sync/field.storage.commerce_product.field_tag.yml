@@ -1,4 +1,4 @@
-uuid: 7050b9f2-9a8c-4b64-99db-04f8667ff527
+uuid: 054f01fb-e3b5-48c0-95ce-832114e76fc4
 langcode: en
 status: true
 dependencies:
@@ -12,23 +12,20 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: health
-      label: Health
+      value: programming
+      label: Programming
     -
-      value: technology
-      label: Technology
+      value: ux_ui_design
+      label: 'UX/UI Design'
     -
-      value: finance
-      label: Finance
+      value: photography
+      label: Photography
     -
-      value: art
-      label: Art
+      value: video_editing
+      label: 'Video Editing'
     -
-      value: education
-      label: Education
-    -
-      value: management
-      label: Management
+      value: cooking
+      label: Cooking
   allowed_values_function: ''
 module: options
 locked: false

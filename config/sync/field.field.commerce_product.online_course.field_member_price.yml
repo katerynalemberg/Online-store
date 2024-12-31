@@ -1,0 +1,23 @@
+uuid: 15564e83-9a70-43ac-88c4-aa97d9f1f619
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.online_course
+    - field.storage.commerce_product.field_member_price
+  module:
+    - commerce_price
+id: commerce_product.online_course.field_member_price
+field_name: field_member_price
+entity_type: commerce_product
+bundle: online_course
+label: 'Member price'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_currencies: {  }
+  allow_negative: false
+field_type: commerce_price
