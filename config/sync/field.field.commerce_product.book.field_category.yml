@@ -1,11 +1,11 @@
-uuid: 3ce3bfa7-59cb-44e8-806d-32924d5afa31
-langcode: en
+uuid: 3bafb735-67ec-4c68-9588-d771a9aa0359
+langcode: en-gb
 status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.book
     - field.storage.commerce_product.field_category
-    - taxonomy.vocabulary.category
+    - taxonomy.vocabulary.book_category
 id: commerce_product.book.field_category
 field_name: field_category
 entity_type: commerce_product
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      category: category
+      book_category: book_category
     sort:
       field: name
       direction: asc

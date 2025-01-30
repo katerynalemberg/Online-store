@@ -1,13 +1,13 @@
-uuid: 1b09bcd3-a791-4b6c-9010-76b0bc5dc13e
-langcode: en
+uuid: 7b0da465-bf65-47b8-93b8-dc96175fcd90
+langcode: en-gb
 status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.online_course
-    - field.storage.commerce_product.field_supplemental_file
+    - field.storage.commerce_product.field_supplemental_files
     - media.type.document
-id: commerce_product.online_course.field_supplemental_file
-field_name: field_supplemental_file
+id: commerce_product.online_course.field_supplemental_files
+field_name: field_supplemental_files
 entity_type: commerce_product
 bundle: online_course
 label: 'Supplemental files'

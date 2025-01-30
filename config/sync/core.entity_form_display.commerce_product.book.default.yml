@@ -1,5 +1,5 @@
-uuid: ed2b4125-d218-4e7a-b375-40d7ce3378c3
-langcode: en
+uuid: 4120241d-2cc3-47d4-8e15-22cc7f34825b
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -9,7 +9,7 @@ dependencies:
     - field.field.commerce_product.book.field_description
     - field.field.commerce_product.book.field_image
     - field.field.commerce_product.book.field_member_price
-    - field.field.commerce_product.book.field_page
+    - field.field.commerce_product.book.field_pages
     - image.style.thumbnail
   module:
     - commerce
@@ -30,7 +30,7 @@ content:
     third_party_settings: {  }
   field_author:
     type: string_textfield
-    weight: 97
+    weight: 96
     region: content
     settings:
       size: 60
@@ -38,7 +38,7 @@ content:
     third_party_settings: {  }
   field_category:
     type: entity_reference_autocomplete
-    weight: 98
+    weight: 97
     region: content
     settings:
       match_operator: CONTAINS
@@ -68,12 +68,19 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_page:
+  field_pages:
     type: number
-    weight: 96
+    weight: 98
     region: content
     settings:
       placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   path:
     type: path

@@ -1,0 +1,11 @@
+uuid: f4b31dab-729d-4708-8b0b-4f4dad12c44f
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.physical_book
+id: commerce_product_variation.physical_book
+target_entity_type_id: commerce_product_variation
+target_bundle: physical_book
+default_langcode: site_default
+language_alterable: false

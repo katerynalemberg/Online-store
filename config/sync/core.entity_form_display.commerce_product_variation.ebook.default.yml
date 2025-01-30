@@ -1,33 +1,38 @@
-uuid: ecb5dfd3-4b42-483e-a30a-0d669ca54dfb
-langcode: en
+uuid: a12558ae-7044-43ff-bcbb-bfbe2cfced9d
+langcode: en-gb
 status: true
 dependencies:
   config:
-    - commerce_product.commerce_product_variation_type.digital_book
-    - field.field.commerce_product_variation.digital_book.field_eula
-    - field.field.commerce_product_variation.digital_book.field_file
+    - commerce_product.commerce_product_variation_type.ebook
+    - field.field.commerce_product_variation.ebook.field_tax_number
+    - field.field.commerce_product_variation.ebook.field_tax_rate
   module:
     - commerce_price
-    - file
-id: commerce_product_variation.digital_book.default
+    - commerce_product_tax
+    - commerce_tax
+id: commerce_product_variation.ebook.default
 targetEntityType: commerce_product_variation
-bundle: digital_book
+bundle: ebook
 mode: default
 content:
-  field_eula:
-    type: string_textfield
-    weight: 92
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_file:
-    type: file_generic
+  field_tax_number:
+    type: commerce_tax_number_default
     weight: 91
     region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_rate:
+    type: commerce_tax_rate_default
+    weight: 92
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
     settings:
-      progress_indicator: throbber
+      include_locked: true
     third_party_settings: {  }
   list_price:
     type: commerce_list_price

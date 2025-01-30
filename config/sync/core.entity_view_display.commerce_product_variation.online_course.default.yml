@@ -1,22 +1,23 @@
-uuid: 475db2a9-5288-47d9-8acc-3cc20851a859
-langcode: en
+uuid: 8f936edf-75f3-4e5a-afd1-8456e03f58ac
+langcode: en-gb
 status: true
 dependencies:
   config:
-    - commerce_product.commerce_product_variation_type.digital_book
-    - field.field.commerce_product_variation.digital_book.field_eula
-    - field.field.commerce_product_variation.digital_book.field_file
+    - commerce_product.commerce_product_variation_type.online_course
+    - field.field.commerce_product_variation.online_course.field_eula
+    - field.field.commerce_product_variation.online_course.field_file
+    - field.field.commerce_product_variation.online_course.field_tax_rate
   module:
     - commerce_price
     - file
-id: commerce_product_variation.digital_book.default
+id: commerce_product_variation.online_course.default
 targetEntityType: commerce_product_variation
-bundle: digital_book
+bundle: online_course
 mode: default
 content:
   field_eula:
     type: string
-    label: inline
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -28,30 +29,36 @@ content:
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
-    weight: 3
+    weight: 1
+    region: content
+  field_tax_rate:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
     region: content
   list_price:
     type: commerce_price_default
-    label: hidden
+    label: above
+    settings:
+      strip_trailing_zeroes: false
+      currency_display: symbol
+    third_party_settings: {  }
+    weight: -1
+    region: content
+  price:
+    type: commerce_price_default
+    label: above
     settings:
       strip_trailing_zeroes: false
       currency_display: symbol
     third_party_settings: {  }
     weight: 0
     region: content
-  price:
-    type: commerce_price_default
-    label: inline
-    settings:
-      strip_trailing_zeroes: false
-      currency_display: symbol
-    third_party_settings: {  }
-    weight: 1
-    region: content
 hidden:
-  entity_print_view_epub: true
-  entity_print_view_pdf: true
-  entity_print_view_word_docx: true
+  langcode: true
   product_id: true
   sku: true
   title: true

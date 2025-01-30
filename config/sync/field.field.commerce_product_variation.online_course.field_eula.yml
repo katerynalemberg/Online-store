@@ -1,14 +1,14 @@
-uuid: 99af15a4-ff73-4342-9b96-834aaf1b4c91
-langcode: en
+uuid: 213132fb-db29-449b-87bc-7793b9c2a2b3
+langcode: en-gb
 status: true
 dependencies:
   config:
-    - commerce_product.commerce_product_variation_type.digital_book
+    - commerce_product.commerce_product_variation_type.online_course
     - field.storage.commerce_product_variation.field_eula
-id: commerce_product_variation.digital_book.field_eula
+id: commerce_product_variation.online_course.field_eula
 field_name: field_eula
 entity_type: commerce_product_variation
-bundle: digital_book
+bundle: online_course
 label: EULA
 description: ''
 required: false

@@ -1,12 +1,11 @@
-uuid: 4d2a69fe-c509-4a16-87c4-b83c389e8cb3
-langcode: en
+uuid: 8b383481-260a-4a54-9e65-23b034e9b42e
+langcode: en-gb
 status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.online_course
     - field.storage.commerce_product.field_tag
-  module:
-    - options
+    - taxonomy.vocabulary.course_type
 id: commerce_product.online_course.field_tag
 field_name: field_tag
 entity_type: commerce_product
@@ -17,5 +16,14 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: list_string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      course_type: course_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,19 +1,19 @@
-uuid: 39e20e10-8b67-4fd8-9e35-9fd735cdab51
-langcode: en
+uuid: 639ced20-5cfc-4481-8049-859669f35329
+langcode: en-gb
 status: true
 dependencies:
   module:
     - commerce_product
     - physical
-id: commerce_product_variation.field_dimensions
-field_name: field_dimensions
+id: commerce_product_variation.dimensions
+field_name: dimensions
 entity_type: commerce_product_variation
 type: physical_dimensions
 settings: {  }
 module: physical
-locked: false
+locked: true
 cardinality: 1
-translatable: true
+translatable: false
 indexes: {  }
 persist_with_no_fields: false
 custom_storage: false
