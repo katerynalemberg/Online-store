@@ -1,0 +1,5 @@
+name: 'Cache extension'
+type: module
+description: 'Defines  cache context for varying cache entries based on different conditions'
+package: Custom
+core_version_requirement: ^10 || ^11
