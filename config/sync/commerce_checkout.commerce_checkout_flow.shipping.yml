@@ -1,0 +1,35 @@
+uuid: 762e0948-c454-4972-8dbb-56ba2f58fe7f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: KDnx5MjFtp3-Rb0dGzCCzQEabHgvxrzxpkMrbOKsg_4
+label: Shipping
+id: shipping
+plugin: multistep_default
+configuration:
+  display_checkout_progress: true
+  display_checkout_progress_breadcrumb_links: false
+  guest_order_assign: false
+  guest_new_account: false
+  guest_new_account_notify: false
+  panes:
+    login:
+      step: login
+      weight: 0
+      allow_guest_checkout: true
+      allow_registration: false
+    contact_information:
+      step: order_information
+      weight: 1
+      double_entry: false
+    review:
+      step: review
+      weight: 3
+    completion_message:
+      step: complete
+      weight: 4
+    order_summary:
+      step: _sidebar
+      weight: 5
+      view: commerce_checkout_order_summary

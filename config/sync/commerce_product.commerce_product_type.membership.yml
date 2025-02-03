@@ -1,0 +1,13 @@
+uuid: 985ff04b-2bbe-4358-a3de-12ccede44495
+langcode: en
+status: true
+dependencies: {  }
+id: membership
+label: Membership
+traits: {  }
+locked: false
+description: 'After purchase, a discount on all goods in the amount specified in the product (member price) is provided for the time set by the administrator when creating the product (can be for a year, 2, or 3).'
+variationTypes:
+  - membership
+multipleVariations: true
+injectVariationFields: true

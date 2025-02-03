@@ -1,4 +1,4 @@
-uuid: b8edf6ad-aa9d-48e9-a03d-3b2bd75398a8
+uuid: deb33e3d-3ee6-4bb9-9830-4e4b8df3e38d
 langcode: en
 status: true
 dependencies:
@@ -42,5 +42,8 @@ content:
     region: content
 hidden:
   created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
   stores: true
   uid: true

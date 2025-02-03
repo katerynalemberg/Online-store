@@ -16,13 +16,15 @@
     ],
     "require": {
         "composer/installers": "^2.0",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/coffee": "^2.0",
         "drupal/commerce": "^3.0@beta",
         "drupal/core-composer-scaffold": "^11.0",
         "drupal/core-project-message": "^11.0",
         "drupal/core-recommended": "^11.0",
-        "drupal/gin": "^3.0@rc",
-        "drupal/gin_toolbar": "^1.0@rc",
-        "drupal/kart": "^1.0"
+        "drupal/gin": "^3.0@RC",
+        "drupal/physical": "^1.5",
+        "drupal/quiz": "^7.0"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -37,7 +39,8 @@
             "drupal/core-project-message": true,
             "php-http/discovery": true,
             "phpstan/extension-installer": true,
-            "tbachert/spi": true
+            "tbachert/spi": true,
+            "cweagans/composer-patches": true
         },
         "sort-packages": true
     },
@@ -45,6 +48,11 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
+            }
+        },
+        "patches": {
+            "drupal/commerce": {
+                "Unable to delete profile.tax_number & uninstall commerce_tax module": "https://www.drupal.org/files/issues/2020-06-07/unable-to-uninstall-commerce-tax-3118588-5.patch"
             }
         },
         "installer-paths": {

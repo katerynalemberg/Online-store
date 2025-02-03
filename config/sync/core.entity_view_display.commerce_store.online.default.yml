@@ -1,4 +1,4 @@
-uuid: 83052654-61ef-477d-8325-2ec376e2946a
+uuid: 3b5ade69-573a-4af1-b127-1250a171b3db
 langcode: en
 status: true
 dependencies:
@@ -24,6 +24,9 @@ hidden:
   billing_countries: true
   created: true
   default_currency: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
   is_default: true
   mail: true
   name: true

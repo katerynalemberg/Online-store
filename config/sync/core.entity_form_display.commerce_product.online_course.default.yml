@@ -1,14 +1,25 @@
-uuid: 9a7efd95-e69b-4d18-aaab-fbeaca1d75b3
+uuid: ee3125b0-1dd5-490b-874a-9b24f7f72e49
 langcode: en
 status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.online_course
     - field.field.commerce_product.online_course.field_area
+    - field.field.commerce_product.online_course.field_certificate_description
+    - field.field.commerce_product.online_course.field_certificate_title
     - field.field.commerce_product.online_course.field_description
+    - field.field.commerce_product.online_course.field_image
+    - field.field.commerce_product.online_course.field_member_price
+    - field.field.commerce_product.online_course.field_quiz
+    - field.field.commerce_product.online_course.field_supplemental_file
     - field.field.commerce_product.online_course.field_tag
+    - image.style.thumbnail
   module:
     - commerce
+    - commerce_price
+    - image
+    - inline_entity_form
+    - media_library
     - path
     - text
 id: commerce_product.online_course.default
@@ -23,11 +34,26 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_area:
-    type: boolean_checkbox
+    type: options_select
     weight: 93
     region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_certificate_description:
+    type: text_textfield
+    weight: 97
+    region: content
     settings:
-      display_label: true
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_certificate_title:
+    type: string_textfield
+    weight: 96
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_description:
     type: text_textarea
@@ -36,6 +62,40 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: image_image
+    weight: 94
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_member_price:
+    type: commerce_price_default
+    weight: 95
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_quiz:
+    type: inline_entity_form_simple
+    weight: 99
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
+  field_supplemental_file:
+    type: media_library_widget
+    weight: 98
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   field_tag:
     type: options_select

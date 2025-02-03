@@ -1,0 +1,19 @@
+uuid: ea42f1a1-b6e5-4d2b-9601-57d0a36f43a6
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_price
+    - commerce_product
+id: commerce_product.field_member_price
+field_name: field_member_price
+entity_type: commerce_product
+type: commerce_price
+settings: {  }
+module: commerce_price
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

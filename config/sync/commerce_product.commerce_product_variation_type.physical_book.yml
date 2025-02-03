@@ -1,0 +1,10 @@
+uuid: 6b1256ee-94c8-46e0-8afc-61485598e41f
+langcode: en
+status: true
+dependencies: {  }
+id: physical_book
+label: 'Physical Book'
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: false

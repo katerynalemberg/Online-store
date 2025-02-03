@@ -1,0 +1,10 @@
+uuid: 71906f1e-c4ea-4c92-a586-5bca34b4071c
+langcode: en
+status: true
+dependencies: {  }
+id: digital_book
+label: 'Digital Book'
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: false

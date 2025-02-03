@@ -1,4 +1,4 @@
-uuid: a2f64aef-e9f2-45c1-a8b0-a37e7f9c62c2
+uuid: 728447ac-d8f4-44f6-85d6-40220e39d61a
 langcode: en
 status: true
 dependencies:
@@ -53,6 +53,11 @@ content:
     region: content
     weight: 10
     third_party_settings: {  }
+  entity_print_view_pdf:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   ip_address:
     label: inline
     type: string
@@ -118,5 +123,7 @@ content:
     region: content
 hidden:
   billing_profile: true
+  entity_print_view_epub: true
+  entity_print_view_word_docx: true
   order_number: true
   total_paid: true

@@ -1,10 +1,9 @@
-uuid: 84a28f6b-e42e-423f-98fa-8a4120e90b36
+uuid: dd8875e1-3f18-45a5-8696-722cb56b3e3e
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.profile.customer.address
-    - field.field.profile.customer.tax_number
     - profile.type.customer
   module:
     - address
@@ -26,4 +25,3 @@ content:
     third_party_settings: {  }
 hidden:
   is_default: true
-  tax_number: true
