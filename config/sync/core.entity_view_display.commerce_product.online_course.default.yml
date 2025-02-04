@@ -1,5 +1,5 @@
-uuid: 34a52cc7-3bae-45bb-825e-08382bef878e
-langcode: en
+uuid: 12185c6b-b49d-419c-b7d6-1fbe8cc20d97
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -11,7 +11,7 @@ dependencies:
     - field.field.commerce_product.online_course.field_image
     - field.field.commerce_product.online_course.field_member_price
     - field.field.commerce_product.online_course.field_quiz
-    - field.field.commerce_product.online_course.field_supplemental_file
+    - field.field.commerce_product.online_course.field_supplemental_files
     - field.field.commerce_product.online_course.field_tag
   module:
     - commerce_price
@@ -26,10 +26,10 @@ mode: default
 content:
   field_area:
     type: list_default
-    label: inline
+    label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 2
     region: content
   field_certificate_description:
     type: text_default
@@ -48,25 +48,25 @@ content:
     region: content
   field_description:
     type: text_default
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
   field_image:
     type: image
-    label: hidden
+    label: above
     settings:
       image_link: ''
       image_style: ''
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 2
+    weight: 4
     region: content
   field_member_price:
     type: commerce_price_default
-    label: inline
+    label: above
     settings:
       strip_trailing_zeroes: false
       currency_display: symbol
@@ -75,15 +75,15 @@ content:
     region: content
   field_quiz:
     type: entity_reference_label
-    label: hidden
+    label: above
     settings:
       link: true
     third_party_settings: {  }
     weight: 9
     region: content
-  field_supplemental_file:
+  field_supplemental_files:
     type: entity_reference_entity_view
-    label: hidden
+    label: above
     settings:
       view_mode: default
       link: false
@@ -91,9 +91,10 @@ content:
     weight: 8
     region: content
   field_tag:
-    type: list_default
-    label: inline
-    settings: {  }
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
     third_party_settings: {  }
     weight: 3
     region: content
@@ -115,8 +116,6 @@ content:
     region: content
 hidden:
   created: true
-  entity_print_view_epub: true
-  entity_print_view_pdf: true
-  entity_print_view_word_docx: true
+  langcode: true
   stores: true
   uid: true

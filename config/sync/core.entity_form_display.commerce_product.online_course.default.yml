@@ -1,5 +1,5 @@
-uuid: ee3125b0-1dd5-490b-874a-9b24f7f72e49
-langcode: en
+uuid: e3aa26a9-7352-4701-b973-845b2aaeface
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -11,14 +11,13 @@ dependencies:
     - field.field.commerce_product.online_course.field_image
     - field.field.commerce_product.online_course.field_member_price
     - field.field.commerce_product.online_course.field_quiz
-    - field.field.commerce_product.online_course.field_supplemental_file
+    - field.field.commerce_product.online_course.field_supplemental_files
     - field.field.commerce_product.online_course.field_tag
     - image.style.thumbnail
   module:
     - commerce
     - commerce_price
     - image
-    - inline_entity_form
     - media_library
     - path
     - text
@@ -35,16 +34,16 @@ content:
     third_party_settings: {  }
   field_area:
     type: options_select
-    weight: 93
+    weight: 92
     region: content
     settings: {  }
     third_party_settings: {  }
   field_certificate_description:
-    type: text_textfield
+    type: text_textarea
     weight: 97
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_certificate_title:
@@ -78,19 +77,16 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_quiz:
-    type: inline_entity_form_simple
+    type: entity_reference_autocomplete
     weight: 99
     region: content
     settings:
-      form_mode: default
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
-      collapsible: false
-      collapsed: false
-      revision: false
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-  field_supplemental_file:
+  field_supplemental_files:
     type: media_library_widget
     weight: 98
     region: content
@@ -98,10 +94,21 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_tag:
-    type: options_select
-    weight: 92
+    type: entity_reference_autocomplete
+    weight: 93
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   path:
     type: path

@@ -1,5 +1,5 @@
-uuid: dd4325ab-7fc2-4c07-96f3-6f00d6d0135f
-langcode: en
+uuid: b773377c-3633-49c2-8022-b2d2842a1cb5
+langcode: en-gb
 status: true
 dependencies:
   module:
@@ -724,7 +724,6 @@ display:
           entity_type: commerce_payment
           entity_field: order_id
           plugin_id: entity_target_id
-          target_entity_type_id: commerce_payment
           default_action: empty
           exception:
             value: all
@@ -751,6 +750,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          target_entity_type_id: commerce_payment
       filters: {  }
       style:
         type: table
