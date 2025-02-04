@@ -19,6 +19,9 @@
         "cweagans/composer-patches": "^1.7",
         "drupal/coffee": "^2.0",
         "drupal/commerce": "^3.0@beta",
+        "drupal/commerce_paypal": "^1.8",
+        "drupal/commerce_product_tax": "^1.2",
+        "drupal/commerce_shipping": "^2.11",
         "drupal/core-composer-scaffold": "^11.0",
         "drupal/core-project-message": "^11.0",
         "drupal/core-recommended": "^11.0",
@@ -107,6 +110,7 @@
         }
     },
     "require-dev": {
+        "drupal/coder": "^8.3",
         "drupal/core-dev": "^11.0",
         "drush/drush": "^13.3"
     }

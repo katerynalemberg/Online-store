@@ -1,12 +1,12 @@
-uuid: 985ff04b-2bbe-4358-a3de-12ccede44495
-langcode: en
+uuid: c8cc3abb-0a0e-40eb-9a6f-b5161f3b530c
+langcode: en-gb
 status: true
 dependencies: {  }
 id: membership
 label: Membership
 traits: {  }
 locked: false
-description: 'After purchase, a discount on all goods in the amount specified in the product (member price) is provided for the time set by the administrator when creating the product (can be for a year, 2, or 3).'
+description: 'The Membership product type allows customers to purchase a membership that provides exclusive discounts on all products in the store. The discount is applied based on the Member Price field specified for individual products.'
 variationTypes:
   - membership
 multipleVariations: true

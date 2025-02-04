@@ -1,5 +1,5 @@
-uuid: 15564e83-9a70-43ac-88c4-aa97d9f1f619
-langcode: en
+uuid: c012bbee-abf0-4101-91b4-ef142cf59c02
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -18,6 +18,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  available_currencies: {  }
+  available_currencies:
+    - USD
   allow_negative: false
 field_type: commerce_price

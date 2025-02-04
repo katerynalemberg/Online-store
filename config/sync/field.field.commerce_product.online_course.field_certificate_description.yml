@@ -1,5 +1,5 @@
-uuid: 832ce3b0-2491-4295-af24-94c80ccea1c1
-langcode: en
+uuid: 5de226ca-c288-4460-beee-565362c06a7a
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -21,4 +21,4 @@ default_value_callback: ''
 settings:
   allowed_formats:
     - basic_html
-field_type: text
+field_type: text_long

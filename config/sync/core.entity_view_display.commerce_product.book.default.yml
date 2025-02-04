@@ -1,5 +1,5 @@
-uuid: ad42f4c6-2f55-484c-8375-af8cd55c42f4
-langcode: en
+uuid: e74e222b-6064-4c37-adda-f0f3bd3da58c
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -9,7 +9,7 @@ dependencies:
     - field.field.commerce_product.book.field_description
     - field.field.commerce_product.book.field_image
     - field.field.commerce_product.book.field_member_price
-    - field.field.commerce_product.book.field_page
+    - field.field.commerce_product.book.field_pages
   module:
     - commerce_price
     - commerce_product
@@ -22,7 +22,7 @@ mode: default
 content:
   field_author:
     type: string
-    label: inline
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -30,22 +30,22 @@ content:
     region: content
   field_category:
     type: entity_reference_label
-    label: inline
+    label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 6
+    weight: 5
     region: content
   field_description:
     type: text_default
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
   field_image:
     type: image
-    label: hidden
+    label: above
     settings:
       image_link: ''
       image_style: ''
@@ -56,21 +56,21 @@ content:
     region: content
   field_member_price:
     type: commerce_price_default
-    label: inline
+    label: above
     settings:
       strip_trailing_zeroes: false
       currency_display: symbol
     third_party_settings: {  }
     weight: 3
     region: content
-  field_page:
+  field_pages:
     type: number_integer
-    label: inline
+    label: above
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 5
+    weight: 6
     region: content
   title:
     type: string
@@ -82,7 +82,7 @@ content:
     region: content
   variations:
     type: commerce_add_to_cart
-    label: hidden
+    label: above
     settings:
       combine: true
     third_party_settings: {  }
@@ -90,8 +90,6 @@ content:
     region: content
 hidden:
   created: true
-  entity_print_view_epub: true
-  entity_print_view_pdf: true
-  entity_print_view_word_docx: true
+  langcode: true
   stores: true
   uid: true

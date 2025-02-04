@@ -1,4 +1,4 @@
-uuid: 3b5ade69-573a-4af1-b127-1250a171b3db
+uuid: 9ab49f15-3dcd-42e5-b590-6fb3c62302e2
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,7 @@ dependencies:
     - commerce_store.commerce_store_type.online
   module:
     - address
+    - options
 _core:
   default_config_hash: TXXGt2nhVIkNciw-z_ybNwsIZnsyMLKvqUFjsZFUmwI
 id: commerce_store.online.default
@@ -15,20 +16,27 @@ mode: default
 content:
   address:
     type: address_default
-    weight: 1
     label: above
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
+  tax_registrations:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
   billing_countries: true
   created: true
   default_currency: true
-  entity_print_view_epub: true
-  entity_print_view_pdf: true
-  entity_print_view_word_docx: true
   is_default: true
+  langcode: true
   mail: true
   name: true
+  prices_include_tax: true
+  shipping_countries: true
   timezone: true
   uid: true

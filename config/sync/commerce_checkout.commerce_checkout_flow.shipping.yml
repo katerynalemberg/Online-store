@@ -1,7 +1,9 @@
-uuid: 762e0948-c454-4972-8dbb-56ba2f58fe7f
-langcode: en
+uuid: f3f9a5ea-2704-45fb-8fd8-c77e8058f764
+langcode: en-gb
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - commerce_shipping
 _core:
   default_config_hash: KDnx5MjFtp3-Rb0dGzCCzQEabHgvxrzxpkMrbOKsg_4
 label: Shipping
@@ -23,6 +25,10 @@ configuration:
       step: order_information
       weight: 1
       double_entry: false
+    shipping_information:
+      step: order_information
+      weight: 2
+      require_shipping_profile: true
     review:
       step: review
       weight: 3

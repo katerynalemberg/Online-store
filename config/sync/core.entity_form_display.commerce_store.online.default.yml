@@ -1,4 +1,4 @@
-uuid: 2b724fdd-375a-4722-92a2-17401d105cb6
+uuid: efa5f31e-7f57-406b-9e32-00dfb0c2fe9e
 langcode: en
 status: true
 dependencies:
@@ -38,6 +38,13 @@ content:
       display_label: true
     weight: 9
     region: content
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   mail:
     type: email_default
