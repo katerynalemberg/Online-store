@@ -1,0 +1,6 @@
+services:
+  cache_context.url.path.not_front:
+    class: Drupal\cache_extension\Cache\Context\NotFrontPathCacheContext
+    arguments: ['@path.matcher']
+    tags:
+      - { name: cache.context}

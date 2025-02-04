@@ -1,0 +1,30 @@
+uuid: dfcda4a7-9004-4e41-8fa1-9e567456a9a8
+langcode: en-gb
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:2d9fbbda-9dd8-470e-9750-b81bc8614827'
+  module:
+    - block_content
+    - system
+  theme:
+    - kinetic
+id: kinetic_aiinhealthcare
+theme: kinetic
+region: content
+weight: -2
+provider: null
+plugin: 'block_content:2d9fbbda-9dd8-470e-9750-b81bc8614827'
+settings:
+  id: 'block_content:2d9fbbda-9dd8-470e-9750-b81bc8614827'
+  label: 'AI in Healthcare'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

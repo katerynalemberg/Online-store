@@ -1,0 +1,5 @@
+name: Kinetic
+type: theme
+base theme: claro
+description: 'Light  modern theme'
+core_version_requirement: ^10 || ^11

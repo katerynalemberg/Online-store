@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_preprocess_block().
+ *
+ * Add cache context to custom block.
+ */
+
+const BLOCK_HEALTHCARE = 'kinetic_aiinhealthcare';
+function kinetic_preprocess_block(&$variables) {
+  $block = $variables['elements']['#id'];
+  if ($block === BLOCK_HEALTHCARE) {
+    $variables['#cache']['contexts'][] = 'url.path.not_front';
+  }
+}
