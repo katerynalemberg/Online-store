@@ -14,14 +14,19 @@ module:
   commerce: 0
   commerce_cart: 0
   commerce_checkout: 0
+  commerce_log: 0
   commerce_number_pattern: 0
   commerce_order: 0
   commerce_payment: 0
   commerce_payment_example: 0
+  commerce_paypal: 0
   commerce_price: 0
   commerce_product: 0
+  commerce_product_tax: 0
   commerce_promotion: 0
+  commerce_shipping: 0
   commerce_store: 0
+  commerce_tax: 0
   config: 0
   contact: 0
   contextual: 0
@@ -68,6 +73,7 @@ module:
   typed_data: 0
   update: 0
   user: 0
+  utils: 0
   views_bulk_operations: 0
   views_ui: 0
   views: 10
@@ -77,3 +83,4 @@ theme:
   claro: 0
   stable9: 0
   gin: 0
+  kart: 0

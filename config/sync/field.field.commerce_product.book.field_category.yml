@@ -5,7 +5,7 @@ dependencies:
   config:
     - commerce_product.commerce_product_type.book
     - field.storage.commerce_product.field_category
-    - taxonomy.vocabulary.book_category
+    - taxonomy.vocabulary.category
 id: commerce_product.book.field_category
 field_name: field_category
 entity_type: commerce_product
