@@ -1,3 +1,90 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Course Activation module.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Cache\RefinableCacheableDependencyInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_entity_view_alter().
+ *
+ * Hide flag 'course_status' if course is not purchased and
+ * shows entity_print_view_pdf if quiz is passed.
+ */
+function course_activation_entity_view_alter(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display) {
+  if ( $entity->bundle() !== 'online_course') {
+    return;
+  }
+  $database = \Drupal::database();
+  $uid = Drupal::currentUser()->id();
+  if ($uid && $entity->hasField('field_quiz')) {
+    $target_id = $entity->get('field_quiz')->target_id ?? 0;
+    $query = $database->select('quiz', 'q');
+    $query->join('quiz_result', 'r', 'r.qid = q.qid');
+    $query->condition('q.type', 'quiz');
+    $query->condition('r.qid', $target_id);
+    $query->condition('r.uid', $uid);
+    $query->where('r.score >= q.pass_rate');
+    $query->fields('q', ['qid']);
+    $result = $query->execute()->fetchField();
+    if ($result) {
+      $display->setComponent('entity_print_view_pdf', [
+        'weight' => 8
+      ]);
+    }
+  }
+  if ($entity->getEntityTypeId() === 'commerce_product_variation' && isset($build['flag_course_status'])) {
+    $purchased_entity = \Drupal::routeMatch()->getParameter('commerce_product')?->id();
+    if ($purchased_entity) {
+      $query = $database->select('commerce_product__variations', 'v');
+      $query->join('commerce_order_item', 'c', 'v.variations_target_id = c.purchased_entity');
+      $query->join('commerce_order', 'o', 'c.order_id = o.order_id');
+      $query->fields('c', ['order_id']);
+      $query->condition('v.entity_id', $purchased_entity);
+      $query->condition('o.state', 'completed');
+      $results = $query->execute()->fetchCol();
+      $orders = Drupal::service('user.purchased_orders')->getAllOrders();
+      $order_ids = array_map(fn($order) => $order->get('order_id')->value, $orders);
+      $is_purchased = !empty(array_intersect($results, $order_ids));
+      if (!$is_purchased) {
+        unset($build['flag_course_status']);
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ *
+ * Restricts access to course files unless the course is activated for the user
+ * and hides variation field if course is already bought.
+ */
+function course_activation_entity_field_access($operation, FieldDefinitionInterface $field_definition, AccountInterface $account,
+  ?FieldItemListInterface $items = NULL) {
+  if ($operation !== 'view') {
+    return AccessResult::neutral();
+  }
+  $path = Drupal::service('path.current')->getPath();
+  $is_activated = Drupal::state()->get('course_' . $account->id() . $path .'_activated');
+  if ($field_definition->getName() == 'field_supplemental_files') {
+    return AccessResult::forbiddenIf(!$is_activated);
+  }
+  if ($field_definition->getName() == 'variations') {
+    return AccessResult::forbiddenIf($is_activated);
+  }
+  return AccessResult::allowed();
+}
+
+
 /*
  * Implements hook_menu_local_tasks_alter().
  *

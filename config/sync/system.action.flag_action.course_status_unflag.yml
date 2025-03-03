@@ -1,0 +1,15 @@
+uuid: c85fa991-e550-4a0f-92f5-e2ad29403b58
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.course_status
+  module:
+    - flag
+id: flag_action.course_status_unflag
+label: Deactivate
+type: commerce_product_variation
+plugin: 'flag_action:course_status_unflag'
+configuration:
+  flag_id: course_status
+  flag_action: unflag
