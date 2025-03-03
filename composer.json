@@ -26,6 +26,7 @@
         "drupal/core-composer-scaffold": "^11.0",
         "drupal/core-project-message": "^11.0",
         "drupal/core-recommended": "^11.0",
+        "drupal/entity_print": "^2.15",
         "drupal/gin": "^3.0@RC",
         "drupal/kart": "^1.0",
         "drupal/physical": "^1.5",
