@@ -1,0 +1,5 @@
+course_activation.course_config:
+  route_name: course_activation.course_config
+  base_route: entity.commerce_product.canonical
+  title: Course Duration
+  weight: 20

@@ -1,0 +1,8 @@
+course_activation.course_config:
+  path: 'product/{commerce_product}/course-duration'
+  defaults:
+    _title: 'Configure Course Duration'
+    _form: 'Drupal\course_activation\Form\CourseConfigForm'
+  requirements:
+    _permission: 'administer site configuration'
+
