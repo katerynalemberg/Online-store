@@ -1,0 +1,30 @@
+uuid: 979b2734-2f26-4bdf-88cd-5fa8720a8fbf
+langcode: en
+status: true
+dependencies:
+  module:
+    - course_activation
+title: 'Default cron handler'
+id: course_activation_cron
+weight: 0
+module: course_activation
+callback: 'course_activation#cron'
+scheduler:
+  id: crontab
+  configuration:
+    rules:
+      - '0+@ 0 * * *'
+    catch_up: 0
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000
