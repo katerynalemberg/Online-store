@@ -1,6 +1,10 @@
 services:
   utils.price_resolver:
     class: Drupal\utils\Resolver\PriceResolver
-    arguments: [ '@entity_type.manager', '@current_user' ]
+    arguments: [ '@user.purchased_orders' ]
     tags:
       - { name: commerce_price.price_resolver, priority: 200 }
+
+  user.purchased_orders:
+    class: Drupal\utils\UserPurchasedOrders
+    arguments: [ '@entity_type.manager', '@current_user' ]
