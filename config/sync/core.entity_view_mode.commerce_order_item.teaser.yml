@@ -1,0 +1,11 @@
+uuid: c4c8816b-9c3d-4e41-ac11-eb7de90cf9db
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+id: commerce_order_item.teaser
+label: Teaser
+description: ''
+targetEntityType: commerce_order_item
+cache: true
