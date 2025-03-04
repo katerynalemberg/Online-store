@@ -14,24 +14,27 @@ function kinetic_store_preprocess_views_view_fields(&$variables) {
       $query = $database->select('quiz', 'q');
       $query->join('quiz_result', 'r', 'r.qid = q.qid');
       $query->condition('q.qid', $quiz_id);
-      $query->where('r.score >= q.pass_rate');
-      $query->fields('r', ['result_id']);
+      $query->condition('r.uid', $uid);
+      $query->fields('r', ['result_id', 'score']);
+      $query->fields('q', ['pass_rate']);
       $query->orderBy('r.score', 'DESC');
       $query->range(0, 1);
-      $is_quiz_finished = $query->execute()->fetchField();
-      $is_course_activated = Drupal::state()->get('course_' . $uid. '/product/'.$product_id .'_activated');
+      $result = $query->execute()->fetchAssoc();
 
-      if (!$is_course_activated && $is_quiz_finished) {
-        $variables['fields']['flagged']->content = 'Completed';
+      $is_quiz_finished = !empty($result);
+      $is_quiz_passed = $is_quiz_finished && $result['score'] >= $result['pass_rate'];
+      $is_course_activated = Drupal::state()->get('course_' . $uid. '/product/'.$product_id .'_activated');
+      if (!$is_course_activated && $is_quiz_finished && $is_quiz_passed) {
+        $variables['fields']['flagged']->content = t('Completed');
       }
-      elseif ($is_course_activated && !$is_quiz_finished) {
-        $variables['fields']['flagged']->content = 'In progress';
+      elseif (!$is_course_activated && $is_quiz_finished && !$is_quiz_passed) {
+        $variables['fields']['flagged']->content = t('In Completed');
       }
-      elseif (!$is_course_activated && !is_null($is_course_activated)) {
-        $variables['fields']['flagged']->content = 'In Completed';
+      elseif ($is_course_activated) {
+        $variables['fields']['flagged']->content = t('In progress');
       }
       else {
-        $variables['fields']['flagged']->content = 'Not activated';
+        $variables['fields']['flagged']->content = t('Not activated');
       }
     }
   }
