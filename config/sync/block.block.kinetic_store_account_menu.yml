@@ -1,0 +1,27 @@
+uuid: 304c6d45-c555-4e42-bcd7-717f38eaef92
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - kinetic_store
+_core:
+  default_config_hash: axU-D9vRz4jNYqbHxXFTgkU8KTDAQ5bO3FAvn06hqEA
+id: kinetic_store_account_menu
+theme: kinetic_store
+region: header
+weight: -5
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

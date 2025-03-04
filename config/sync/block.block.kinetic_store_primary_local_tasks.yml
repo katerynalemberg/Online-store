@@ -1,0 +1,22 @@
+uuid: a89e15ec-52ec-49e3-9f1a-18b93af9ec79
+langcode: en
+status: true
+dependencies:
+  theme:
+    - kinetic_store
+_core:
+  default_config_hash: v8eTSlYf9MlVC3YMD3jis6kP9d_enWDx5i76K09PvP0
+id: kinetic_store_primary_local_tasks
+theme: kinetic_store
+region: content
+weight: -14
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

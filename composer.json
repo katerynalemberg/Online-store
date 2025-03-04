@@ -27,10 +27,15 @@
         "drupal/core-project-message": "^11.0",
         "drupal/core-recommended": "^11.0",
         "drupal/entity_print": "^2.15",
+        "drupal/flag": "^4.0@beta",
         "drupal/gin": "^3.0@RC",
         "drupal/kart": "^1.0",
+        "drupal/pathauto": "^1.13",
         "drupal/physical": "^1.5",
-        "drupal/quiz": "^7.0"
+        "drupal/project_browser": "^2.0@alpha",
+        "drupal/quiz": "^7.0",
+        "drupal/rules": "^4.0",
+        "drupal/ultimate_cron": "^2.0@beta"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -54,11 +59,6 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
-            }
-        },
-        "patches": {
-            "drupal/commerce": {
-                "Unable to delete profile.tax_number & uninstall commerce_tax module": "https://www.drupal.org/files/issues/2020-06-07/unable-to-uninstall-commerce-tax-3118588-5.patch"
             }
         },
         "installer-paths": {

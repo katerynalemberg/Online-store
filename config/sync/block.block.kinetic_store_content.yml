@@ -1,0 +1,22 @@
+uuid: 624cfddb-9e0b-464d-8249-300637c0abd1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - kinetic_store
+_core:
+  default_config_hash: It1dYBpENqvVxeYG-4EvxSWDS8WwhQ-Il0DxQYRahxs
+id: kinetic_store_content
+theme: kinetic_store
+region: content
+weight: -11
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

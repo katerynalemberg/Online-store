@@ -1,5 +1,5 @@
-uuid: e3aa26a9-7352-4701-b973-845b2aaeface
-langcode: en-gb
+uuid: 317297c0-fca1-46ae-83c5-34dd02267027
+langcode: en
 status: true
 dependencies:
   config:
@@ -34,7 +34,7 @@ content:
     third_party_settings: {  }
   field_area:
     type: options_select
-    weight: 92
+    weight: 93
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -95,20 +95,13 @@ content:
     third_party_settings: {  }
   field_tag:
     type: entity_reference_autocomplete
-    weight: 93
+    weight: 92
     region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  langcode:
-    type: language_select
-    weight: 2
-    region: content
-    settings:
-      include_locked: true
     third_party_settings: {  }
   path:
     type: path
@@ -152,4 +145,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  publish_on: true
+  unpublish_on: true
   variations: true

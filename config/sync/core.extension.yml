@@ -30,12 +30,14 @@ module:
   config: 0
   contact: 0
   contextual: 0
+  course_activation: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
   entity: 0
+  entity_browser: 0
   entity_print: 0
   entity_reference_revisions: 0
   field: 0
@@ -43,10 +45,12 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  flag: 0
   help: 0
   history: 0
   image: 0
   inline_entity_form: 0
+  layout_discovery: 0
   link: 0
   media: 0
   media_library: 0
@@ -61,6 +65,8 @@ module:
   physical: 0
   profile: 0
   quiz: 0
+  quiz_multichoice: 0
+  quiz_truefalse: 0
   range: 0
   rules: 0
   search: 0
@@ -78,6 +84,7 @@ module:
   utils: 0
   views_bulk_operations: 0
   views_ui: 0
+  pathauto: 1
   views: 10
   paragraphs: 11
 theme:
@@ -86,3 +93,4 @@ theme:
   stable9: 0
   gin: 0
   kart: 0
+  kinetic_store: 0
