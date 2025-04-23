@@ -21,3 +21,7 @@ mounts:
 
 # The size of the persistent disk of the application (in MB).
 disk: 2048
+
+relationships:
+  database: 'db:mysql'
+  redis: 'cache:redis'
