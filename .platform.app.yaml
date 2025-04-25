@@ -25,3 +25,74 @@ disk: 2048
 relationships:
   database: 'db:mysql'
   redis: 'cache:redis'
+
+web:
+  # Commands are run once after deployment to start the application process.
+  # More information: https://docs.platform.sh/create-apps/app-reference.html#web-commands
+  # commands:
+  # The command to launch your app. If it terminates, it’s restarted immediately.
+  #   You can use the $PORT or the $SOCKET environment variable depending on the socket family of your upstream
+  #   PHP applications run PHP-fpm by default
+  #   Read about alternative commands here: https://docs.platform.sh/languages/php.html#alternate-start-commands
+  #   start: echo 'Put your start command here'
+  # You can listen to a UNIX socket (unix) or a TCP port (tcp, default).
+  # For PHP, the defaults are configured for PHP-FPM and shouldn't need adjustment.
+  # Whether your app should speak to the webserver via TCP or Unix socket. Defaults to tcp
+  # More information: https://docs.platform.sh/create-apps/app-reference.html#where-to-listen
+  # upstream:
+  #  socket_family: unix
+  # Each key in locations is a path on your site with a leading /.
+  # More information: https://docs.platform.sh/create-apps/app-reference.html#locations
+  locations:
+    # All requests not otherwise specified follow these rules.
+    '/':
+      # The folder from which to serve static assets, for this location.
+      #
+      # This is a filesystem path, relative to the application root.
+      root: 'web'
+
+      # How long to allow static assets from this location to be cached.
+      #
+      # Can be a time in seconds, or -1 for no caching. Times can be
+      # suffixed with "s" (seconds), "m" (minutes), "h" (hours), "d"
+      # (days), "w" (weeks), "M" (months, as 30 days) or "y" (years, as
+      # 365 days).
+      expires: 5m
+
+      # Redirect any incoming request to Drupal's front controller.
+      passthru: '/index.php'
+
+      # Deny access to all static files, except those specifically allowed below.
+      allow: false
+
+      # Rules for specific URI patterns.
+      rules:
+        # Allow access to common static files.
+        '\.(avif|webp|jpe?g|png|gif|svgz?|css|js|map|ico|bmp|eot|woff2?|otf|ttf)$':
+          allow: true
+        '^/robots\.txt$':
+          allow: true
+        '^/sitemap\.xml$':
+          allow: true
+
+        # Deny direct access to configuration files.
+        '^/sites/sites\.php$':
+          scripts: false
+        '^/sites/[^/]+/settings.*?\.php$':
+          scripts: false
+
+    # The files directory has its own special configuration rules.
+    '/sites/default/files':
+      # Allow access to all files in the public files directory.
+      allow: true
+      expires: 5m
+      passthru: '/index.php'
+      root: 'web/sites/default/files'
+
+      # Do not execute PHP scripts from the writeable mount.
+      scripts: false
+
+      rules:
+        # Provide a longer TTL (2 weeks) for aggregated CSS and JS files.
+        '^/sites/default/files/(css|js)':
+          expires: 2w
