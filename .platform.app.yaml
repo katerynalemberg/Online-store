@@ -6,7 +6,7 @@ name: 'drupal'
 
 # The runtime the application uses.
 # Complete list of available runtimes: https://docs.platform.sh/create-apps/app-reference.html#types
-type: "php:8.4"
+type: "php:8.3"
 
 # How many resources to devote to the app. Defaults to AUTO in production environments.
 # More information: https://docs.platform.sh/create-apps/app-reference.html#sizes
@@ -49,6 +49,10 @@ mounts:
   '/drush-backups':
     source: local
     source_path: 'drush-backups'
+
+  '/translations':
+    source: local
+    source_path: 'translations'
 
 # Configuration of the build of this application.
 build:
@@ -199,6 +203,7 @@ runtime:
   # Enable the redis extension so Drupal can communicate with the Redis cache.
   extensions:
     - redis
+    - sodium
     - apcu
 
 # More information: https://docs.platform.sh/create-apps/app-reference.html#additional-hosts
