@@ -35,7 +35,9 @@
         "drupal/project_browser": "^2.0@alpha",
         "drupal/quiz": "^7.0",
         "drupal/rules": "^4.0",
-        "drupal/ultimate_cron": "^2.0@beta"
+        "drupal/ultimate_cron": "^2.0@beta",
+        "drupal/quiz": "^7.0",
+        "platformsh/config-reader": "^3.0"
     },
     "conflict": {
         "drupal/drupal": "*"
