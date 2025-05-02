@@ -1,12 +1,12 @@
-uuid: 857add68-5cdc-416f-8cb7-8422ab432ea0
-langcode: en-gb
+uuid: 339af7bb-9052-4acb-9299-9cfb9e362312
+langcode: en
 status: true
 dependencies: {  }
 id: online_course
 label: 'Online course'
 traits: {  }
 locked: false
-description: 'This product represents an online course that offers a self-paced learning experience.'
+description: 'Allows the user to take lessons online, with the possibility of obtaining a certificate upon successful completion of the course'
 variationTypes:
   - online_course
 multipleVariations: true

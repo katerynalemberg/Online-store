@@ -9,7 +9,11 @@ dependencies:
     - field.field.commerce_product_variation.online_course.field_tax_rate
   module:
     - commerce_price
+    - entity_print
     - file
+third_party_settings:
+  entity_print:
+    pdf_label: 'Download certificate'
 id: commerce_product_variation.online_course.default
 targetEntityType: commerce_product_variation
 bundle: online_course
@@ -17,11 +21,11 @@ mode: default
 content:
   field_eula:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_file:
     type: file_default
@@ -29,36 +33,43 @@ content:
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
-    weight: 1
+    weight: 5
     region: content
   field_tax_rate:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 2
+    weight: 4
     region: content
-  list_price:
-    type: commerce_price_default
-    label: above
-    settings:
-      strip_trailing_zeroes: false
-      currency_display: symbol
-    third_party_settings: {  }
-    weight: -1
-    region: content
-  price:
-    type: commerce_price_default
-    label: above
-    settings:
-      strip_trailing_zeroes: false
-      currency_display: symbol
+  flag_course_status:
+    settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
+  list_price:
+    type: commerce_price_default
+    label: inline
+    settings:
+      strip_trailing_zeroes: false
+      currency_display: symbol
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  price:
+    type: commerce_price_default
+    label: inline
+    settings:
+      strip_trailing_zeroes: false
+      currency_display: symbol
+    third_party_settings: {  }
+    weight: 2
+    region: content
 hidden:
-  langcode: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
   product_id: true
   sku: true
   title: true

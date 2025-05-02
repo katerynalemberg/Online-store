@@ -1,0 +1,15 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Functions to support theming in the kinetic store theme.
+ */
+
+/**
+ * Load include files which contain additional theming logic.
+ */
+foreach (glob(\Drupal::service('extension.list.theme')->getPath('kinetic_store') . '/includes/*.theme') as $file) {
+  include $file;
+}

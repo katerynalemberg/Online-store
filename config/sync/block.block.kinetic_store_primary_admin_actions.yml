@@ -1,0 +1,20 @@
+uuid: 5ffc6e7d-804d-4f7c-a250-066c58bbb5d7
+langcode: en
+status: true
+dependencies:
+  theme:
+    - kinetic_store
+_core:
+  default_config_hash: jYuXEzagcc6YQqcnFOy1bCK2rJ39zKTRV0oshnqfL7I
+id: kinetic_store_primary_admin_actions
+theme: kinetic_store
+region: content
+weight: -13
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

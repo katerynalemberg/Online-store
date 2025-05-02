@@ -58,7 +58,9 @@ content:
     region: content
 hidden:
   dimensions: true
-  langcode: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
   product_id: true
   sku: true
   title: true

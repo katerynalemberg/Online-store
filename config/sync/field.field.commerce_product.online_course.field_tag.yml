@@ -1,11 +1,11 @@
-uuid: 8b383481-260a-4a54-9e65-23b034e9b42e
-langcode: en-gb
+uuid: e02f9f63-e6e6-43d4-925f-5b1a4e3fd9f9
+langcode: en
 status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.online_course
     - field.storage.commerce_product.field_tag
-    - taxonomy.vocabulary.category
+    - taxonomy.vocabulary.tags
 id: commerce_product.online_course.field_tag
 field_name: field_tag
 entity_type: commerce_product
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      course_type: course_type
+      tags: tags
     sort:
       field: name
       direction: asc

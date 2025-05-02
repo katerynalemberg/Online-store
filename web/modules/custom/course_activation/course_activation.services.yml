@@ -1,0 +1,6 @@
+services:
+  course_activation.event_subscriber:
+    class: Drupal\course_activation\EventSubscriber\CourseActivationSubscriber
+    arguments: ['@state', '@current_user', '@request_stack']
+    tags:
+      - { name: event_subscriber }

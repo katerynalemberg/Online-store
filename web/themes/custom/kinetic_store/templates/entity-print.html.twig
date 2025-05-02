@@ -1,0 +1,36 @@
+{%
+  set product = content[0]['#commerce_product']
+%}
+{% set classes = [
+  'entity-print-pdf'
+]
+%}
+{% set username = user.account.name %}
+
+<div{{ attributes.addClass(classes) }}>
+  {% if product.title.value %}
+  <h1>{{ product.field_certificate_title.value }}</h1>
+  {% endif %}
+
+  {% if product.field_certificate_description.value %}
+    {{ product.field_certificate_description.value | striptags }}
+  {% endif %}
+
+  {% if product.field_image %}
+    {% set image = product.field_image.0 %}
+    {% if image.target_id %}
+      {% set image_url = file_url(image.entity.uri.value) %}
+      <div class="product-image-field">
+        <img src="{{ image_url }}" alt="{{ image.alt }}" title="{{ image.title }}">
+      </div>
+    {% endif %}
+  {% endif %}
+
+  <div class="certificate-metadata">
+    <p>This certificate is proudly presented to: <strong>{{ username }}</strong></p>
+    <p>Issued on: {{ "now"|date("l, F j, Y") }}</p>
+  </div>
+</div>
+
+
+

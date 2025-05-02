@@ -1,5 +1,5 @@
-uuid: 7b0da465-bf65-47b8-93b8-dc96175fcd90
-langcode: en-gb
+uuid: 5ca45d62-5a61-465d-b7fb-3f433719e965
+langcode: en
 status: true
 dependencies:
   config:
@@ -10,7 +10,7 @@ id: commerce_product.online_course.field_supplemental_files
 field_name: field_supplemental_files
 entity_type: commerce_product
 bundle: online_course
-label: 'Supplemental files'
+label: 'Supplemental files '
 description: ''
 required: false
 translatable: false

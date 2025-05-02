@@ -11,6 +11,7 @@ dependencies:
     - commerce_price
     - commerce_product_tax
     - file
+    - path
 id: commerce_product_variation.online_course.default
 targetEntityType: commerce_product_variation
 bundle: online_course
@@ -37,16 +38,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  langcode:
-    type: language_select
-    weight: 2
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
   list_price:
     type: commerce_list_price
     weight: -1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
