@@ -46,7 +46,8 @@
             "php-http/discovery": true,
             "phpstan/extension-installer": true,
             "tbachert/spi": true,
-            "cweagans/composer-patches": true
+            "cweagans/composer-patches": true,
+            "phpro/grumphp": true
         },
         "sort-packages": true
     },
@@ -115,6 +116,9 @@
     "require-dev": {
         "drupal/coder": "^8.3",
         "drupal/core-dev": "^11.0",
-        "drush/drush": "^13.3"
+        "drush/drush": "^13.3",
+        "mglaman/drupal-check": "^1.5",
+        "phpro/grumphp": "^2.10",
+        "phpstan/phpstan-deprecation-rules": "^1.2"
     }
 }
