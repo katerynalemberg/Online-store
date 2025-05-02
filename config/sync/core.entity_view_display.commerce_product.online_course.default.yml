@@ -1,5 +1,5 @@
-uuid: 12185c6b-b49d-419c-b7d6-1fbe8cc20d97
-langcode: en-gb
+uuid: 15824281-000a-4ea2-b355-414be616910f
+langcode: en
 status: true
 dependencies:
   config:
@@ -16,9 +16,48 @@ dependencies:
   module:
     - commerce_price
     - commerce_product
+    - entity_print
+    - field_group
     - image
     - options
     - text
+third_party_settings:
+  field_group:
+    group_certificate_info:
+      children: {  }
+      label: 'Certificate info'
+      parent_name: ''
+      region: hidden
+      weight: 17
+      format_type: html_element
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+    group_table_of_materials:
+      children:
+        - field_supplemental_files
+      label: 'Table of materials'
+      parent_name: ''
+      region: content
+      weight: 9
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+  entity_print:
+    pdf_label: 'Download a certificate'
 id: commerce_product.online_course.default
 targetEntityType: commerce_product
 bundle: online_course
@@ -26,10 +65,10 @@ mode: default
 content:
   field_area:
     type: list_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 5
     region: content
   field_certificate_description:
     type: text_default
@@ -48,42 +87,42 @@ content:
     region: content
   field_description:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
   field_image:
     type: image
-    label: above
+    label: hidden
     settings:
       image_link: ''
       image_style: ''
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 4
+    weight: 2
     region: content
   field_member_price:
     type: commerce_price_default
-    label: above
+    label: inline
     settings:
       strip_trailing_zeroes: false
       currency_display: symbol
     third_party_settings: {  }
-    weight: 5
+    weight: 3
     region: content
   field_quiz:
     type: entity_reference_label
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
-    weight: 9
+    weight: 8
     region: content
   field_supplemental_files:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: false
@@ -92,11 +131,16 @@ content:
     region: content
   field_tag:
     type: entity_reference_label
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
-    weight: 3
+    weight: 4
+    region: content
+  flag_test:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
   title:
     type: string
@@ -108,7 +152,7 @@ content:
     region: content
   variations:
     type: commerce_add_to_cart
-    label: above
+    label: hidden
     settings:
       combine: true
     third_party_settings: {  }
@@ -116,6 +160,8 @@ content:
     region: content
 hidden:
   created: true
-  langcode: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
   stores: true
   uid: true

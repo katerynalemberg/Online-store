@@ -1,0 +1,22 @@
+uuid: 5f854e5f-cee4-4557-b252-3ee4a70c31e7
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - kinetic_store
+_core:
+  default_config_hash: v3ZiUY0Uoig8LMdG6l1KNwFZpC-DRvf5ZjBdZ5HdhUQ
+id: kinetic_store_breadcrumbs
+theme: kinetic_store
+region: header
+weight: -5
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

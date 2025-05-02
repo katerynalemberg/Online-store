@@ -1,4 +1,4 @@
-uuid: 5bd221e4-ba14-474f-9dc6-752e8021705d
+uuid: 23e715a6-338d-4dd2-a03e-bff7cd824d7d
 langcode: en
 status: true
 dependencies:
@@ -34,9 +34,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  entity_print_view_epub: true
-  entity_print_view_pdf: true
-  entity_print_view_word_docx: true
   quiz_date: true
   takes: true
   time_limit: true

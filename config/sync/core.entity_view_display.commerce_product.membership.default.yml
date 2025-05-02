@@ -17,14 +17,14 @@ mode: default
 content:
   field_description:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
   field_image:
     type: image
-    label: above
+    label: hidden
     settings:
       image_link: ''
       image_style: ''
@@ -43,7 +43,7 @@ content:
     region: content
   variations:
     type: commerce_add_to_cart
-    label: above
+    label: hidden
     settings:
       combine: true
     third_party_settings: {  }
@@ -51,6 +51,5 @@ content:
     region: content
 hidden:
   created: true
-  langcode: true
   stores: true
   uid: true

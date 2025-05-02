@@ -1,0 +1,23 @@
+uuid: 5498c3ea-e18a-4653-8c02-d578faba2a83
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - kinetic_store
+_core:
+  default_config_hash: tbgj8InEL7STnYWOisTsELcL2j6N5CvoyldiAcaeoLU
+id: kinetic_store_search_form_wide
+theme: kinetic_store
+region: header
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

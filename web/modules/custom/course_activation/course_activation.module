@@ -1,0 +1,169 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Course Activation module.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Cache\RefinableCacheableDependencyInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_entity_view_alter().
+ *
+ * Hide flag 'course_status' if course is not purchased and
+ * shows entity_print_view_pdf if quiz is passed.
+ */
+function course_activation_entity_view_alter(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display) {
+  if ( $entity->bundle() !== 'online_course') {
+    return;
+  }
+  $database = \Drupal::database();
+  $uid = Drupal::currentUser()->id();
+  if ($uid && $entity->hasField('field_quiz')) {
+    $target_id = $entity->get('field_quiz')->target_id ?? 0;
+    $query = $database->select('quiz', 'q');
+    $query->join('quiz_result', 'r', 'r.qid = q.qid');
+    $query->condition('q.type', 'quiz');
+    $query->condition('r.qid', $target_id);
+    $query->condition('r.uid', $uid);
+    $query->where('r.score >= q.pass_rate');
+    $query->fields('q', ['qid']);
+    $result = $query->execute()->fetchField();
+    if ($result) {
+      $display->setComponent('entity_print_view_pdf', [
+        'weight' => 8
+      ]);
+    }
+  }
+  if ($entity->getEntityTypeId() === 'commerce_product_variation' && isset($build['flag_course_status'])) {
+    $purchased_entity = \Drupal::routeMatch()->getParameter('commerce_product')?->id();
+    if ($purchased_entity) {
+      $query = $database->select('commerce_product__variations', 'v');
+      $query->join('commerce_order_item', 'c', 'v.variations_target_id = c.purchased_entity');
+      $query->join('commerce_order', 'o', 'c.order_id = o.order_id');
+      $query->fields('c', ['order_id']);
+      $query->condition('v.entity_id', $purchased_entity);
+      $query->condition('o.state', 'completed');
+      $results = $query->execute()->fetchCol();
+      $orders = Drupal::service('user.purchased_orders')->getAllOrders();
+      $order_ids = array_map(fn($order) => $order->get('order_id')->value, $orders);
+      $is_purchased = !empty(array_intersect($results, $order_ids));
+      if (!$is_purchased) {
+        unset($build['flag_course_status']);
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ *
+ * Restricts access to course files unless the course is activated for the user
+ * and hides variation field if course is already bought.
+ */
+function course_activation_entity_field_access($operation, FieldDefinitionInterface $field_definition, AccountInterface $account,
+  ?FieldItemListInterface $items = NULL) {
+  if ($operation !== 'view') {
+    return AccessResult::neutral();
+  }
+  $path = Drupal::service('path.current')->getPath();
+  $is_activated = Drupal::state()->get('course_' . $account->id() . $path .'_activated');
+  if ($field_definition->getName() == 'field_supplemental_files') {
+    return AccessResult::forbiddenIf(!$is_activated);
+  }
+  if ($field_definition->getName() == 'variations') {
+    return AccessResult::forbiddenIf($is_activated);
+  }
+  return AccessResult::allowed();
+}
+
+
+/*
+ * Implements hook_menu_local_tasks_alter().
+ *
+ * Hides tab for Course config form if it is not online course product.
+ */
+function course_activation_menu_local_tasks_alter(&$data, $route_name, RefinableCacheableDependencyInterface &$cacheability) {
+  if ($route_name === 'entity.commerce_product.canonical') {
+    $product = \Drupal::routeMatch()->getParameter('commerce_product');
+    if ($product->bundle() !== 'online_course') {
+      $data['tabs'][0]['course_activation.course_config']['#access'] = FALSE;
+    }
+  }
+}
+/**
+ * Implements hook_entity_operation_alter().
+ *
+ * Adds operation config course form for Online course.
+ */
+function course_activation_entity_operation_alter(array &$operations, EntityInterface $entity) {
+  $entityTypeId = $entity->getEntityTypeId();
+  if ($entityTypeId !== 'commerce_product') {
+    return;
+  }
+  if ($entity->bundle() === 'online_course') {
+    $url = Url::fromRoute('course_activation.course_config', ['commerce_product' => $entity->id()]);
+    $operations['course_config'] = [
+      'title' => t('Course Duration'),
+      'weight' => 20,
+      'url' => $url,
+  ];
+  }
+}
+
+/**
+ * Implements hook_cron().
+ *
+ * Checks if course's time is ended and deactivates it.
+ */
+function course_activation_cron() {
+  $database = \Drupal::database();
+  $query = $database->select('commerce_product__variations', 'v');
+  $query->join('commerce_order_item', 'c',
+    'v.variations_target_id = c.purchased_entity');
+  $query->condition('v.bundle', 'online_course');
+  $query->fields('v', ['entity_id']);
+  $query->fields('c', ['purchased_entity']);
+  $query->distinct();
+  $results = $query->execute()->fetchAll();
+  if ($results) {
+    foreach ($results as $result) {
+      $config = \Drupal::configFactory()
+        ->getEditable('course_activation.settings.'.$result->entity_id);
+      if ($config) {
+        $flag_service = Drupal::service('flag');
+        $product = \Drupal::entityTypeManager()
+          ->getStorage('commerce_product_variation')
+          ->load($result->purchased_entity);
+        if ($product) {
+          $courses = $database->select('flagging', 'f')
+            ->fields('f', ['created', 'uid'])
+            ->condition('f.entity_id', $result->purchased_entity)
+            ->execute()
+            ->fetchAll();
+          $course_duration = $config->get('duration') ?? ['days' => 30, 'hours' => 0, 'minutes' => 0];;
+          $course_duration = ($course_duration['days'] * 86400) + ($course_duration['hours'] * 3600) + ($course_duration['minutes'] * 60);
+          if (!empty($courses)) {
+            foreach ($courses as $course) {
+              $expiration_time = $course->created + $course_duration;
+              $current_time = \Drupal::time()->getRequestTime();
+              if ($current_time >= $expiration_time) {
+                $flag_service->unflagAllByEntity($product);
+                Drupal::state()->set('course_' . $course->uid . '/product/'.$result->entity_id .'_activated', FALSE);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

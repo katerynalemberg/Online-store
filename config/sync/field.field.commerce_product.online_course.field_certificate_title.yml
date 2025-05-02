@@ -1,5 +1,5 @@
-uuid: 3822d09f-307c-484a-a830-0b44526868bf
-langcode: en-gb
+uuid: 08fa94e7-8df0-44e5-bc7a-45dde5236732
+langcode: en
 status: true
 dependencies:
   config:
@@ -9,7 +9,7 @@ id: commerce_product.online_course.field_certificate_title
 field_name: field_certificate_title
 entity_type: commerce_product
 bundle: online_course
-label: 'Certificate title'
+label: 'Certificate title '
 description: ''
 required: false
 translatable: false
