@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d362c08778db8150b713d53b14015df",
+    "content-hash": "81595193cf39010081f98416bc064f6d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3616,6 +3616,49 @@
                 "exception"
             ],
             "time": "2021-03-21T15:43:46+00:00"
+        },
+        {
+            "name": "platformsh/config-reader",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/platformsh/config-reader-php.git",
+                "reference": "cab2b6c0cdfc318df09a64136957dc1fc308f418"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/platformsh/config-reader-php/zipball/cab2b6c0cdfc318df09a64136957dc1fc308f418",
+                "reference": "cab2b6c0cdfc318df09a64136957dc1fc308f418",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Platformsh\\ConfigReader\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Larry Garfield",
+                    "email": "larry@platform.sh"
+                }
+            ],
+            "description": "Small helper to access Platform.sh environment variables",
+            "support": {
+                "issues": "https://github.com/platformsh/config-reader-php/issues",
+                "source": "https://github.com/platformsh/config-reader-php/tree/3.0.1"
+            },
+            "time": "2025-02-25T17:22:15+00:00"
         },
         {
             "name": "psr/cache",
@@ -13597,7 +13640,7 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }
