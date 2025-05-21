@@ -1,0 +1,15 @@
+name: Integrate
+
+on: pull_request
+
+jobs:
+  composer:
+    name: Composer install
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install composer dependencies
+        run: composer install
