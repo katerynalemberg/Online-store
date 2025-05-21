@@ -19,3 +19,25 @@ jobs:
 
       - name: Install composer dependencies
         run: composer install
+
+  phpcs:
+    name: PHP Code Standards
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+            php-version: ${{ vars.PHP_VERSION }}
+            tools: composer:${{ vars.COMPOSER_VERSION }}
+
+      - name: Install composer dependencies
+        run: composer install
+
+      - name: PHP Code Sniffer
+        run: ./vendor/bin/phpcs --standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'
+
+
