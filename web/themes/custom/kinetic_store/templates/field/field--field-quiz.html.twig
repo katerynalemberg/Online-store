@@ -1,0 +1,9 @@
+{% for item in items %}
+  {% if item.content['#url'] %}
+    {% set url = item.content['#url'].toString() %}
+    <div class="quiz__link">
+      <a href="{{ url }}">{{ 'Take a quiz'|t }}</a>
+    </div>
+  {% endif %}
+{% endfor %}
+

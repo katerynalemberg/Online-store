@@ -1,0 +1,15 @@
+uuid: fdc92304-14a9-4c66-bf97-fc6041434a3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.course_status
+  module:
+    - flag
+id: flag_action.course_status_flag
+label: Activate
+type: commerce_product_variation
+plugin: 'flag_action:course_status_flag'
+configuration:
+  flag_id: course_status
+  flag_action: flag

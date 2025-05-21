@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * Implements hook_preprocess_views_view_fields().
+ */
+function kinetic_store_preprocess_views_view_fields(&$variables) {
+  if ($variables['view']->id() === 'list_purchased_courses' && isset($variables['fields']['rendered_entity'])) {
+    if (isset($variables['row']) && isset($variables['fields']['flagged'])) {
+      $row = $variables['row'];
+      $quiz_id = $row->quiz_commerce_product__field_quiz_qid;
+      $uid = $row->users_field_data_commerce_order_uid;
+      $product_id = $row->commerce_product_field_data_commerce_product_variation_field;
+      $database = Drupal::database();
+      $query = $database->select('quiz', 'q');
+      $query->join('quiz_result', 'r', 'r.qid = q.qid');
+      $query->condition('q.qid', $quiz_id);
+      $query->condition('r.uid', $uid);
+      $query->fields('r', ['result_id', 'score']);
+      $query->fields('q', ['pass_rate']);
+      $query->orderBy('r.score', 'DESC');
+      $query->range(0, 1);
+      $result = $query->execute()->fetchAssoc();
+
+      $is_quiz_finished = !empty($result);
+      $is_quiz_passed = $is_quiz_finished && $result['score'] >= $result['pass_rate'];
+      $is_course_activated = Drupal::state()->get('course_' . $uid. '/product/'.$product_id .'_activated');
+      if (!$is_course_activated && $is_quiz_finished && $is_quiz_passed) {
+        $variables['fields']['flagged']->content = t('Completed');
+      }
+      elseif (!$is_course_activated && $is_quiz_finished && !$is_quiz_passed) {
+        $variables['fields']['flagged']->content = t('In Completed');
+      }
+      elseif ($is_course_activated) {
+        $variables['fields']['flagged']->content = t('In progress');
+      }
+      else {
+        $variables['fields']['flagged']->content = t('Not activated');
+      }
+    }
+  }
+}

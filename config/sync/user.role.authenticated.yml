@@ -13,6 +13,7 @@ dependencies:
     - contact
     - file
     - filter
+    - flag
     - media
     - quiz
     - search
@@ -32,6 +33,7 @@ permissions:
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'delete own files'
+  - 'flag course_status'
   - 'manage own commerce_payment_method'
   - 'post comments'
   - 'search content'

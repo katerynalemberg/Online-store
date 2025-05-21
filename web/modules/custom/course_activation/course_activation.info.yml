@@ -1,0 +1,7 @@
+name: 'Course Activation'
+type: module
+description: 'Provides functionality to activate and deactivate courses with flags.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - flag:flag

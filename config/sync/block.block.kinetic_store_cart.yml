@@ -1,0 +1,24 @@
+uuid: 8c0b1073-5eff-49ea-8df7-0f525bf3524e
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_cart
+  theme:
+    - kinetic_store
+_core:
+  default_config_hash: HUWV788R5zWFzgV76-IQ8wZh_GWQQyqs5tMH-Rl_pKI
+id: kinetic_store_cart
+theme: kinetic_store
+region: header
+weight: -5
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  label_display: '0'
+  provider: commerce_cart
+  dropdown: true
+  show_if_empty: true
+visibility: {  }
