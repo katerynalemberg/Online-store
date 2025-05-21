@@ -14,7 +14,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php_version: ${{ vars.PHP_VERSION }}
+          php-version: ${{ vars.PHP_VERSION }}
           tools: composer:${{ vars.COMPOSER_VERSION }}
 
       - name: Install composer dependencies
