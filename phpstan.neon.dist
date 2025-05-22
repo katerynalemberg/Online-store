@@ -2,7 +2,6 @@ parameters:
   level: 5
   paths:
     - %currentWorkingDirectory%/web/modules/custom
-    - %currentWorkingDirectory%/web/themes/custom
   bootstrapFiles:
     - %currentWorkingDirectory%/vendor/mglaman/phpstan-drupal/drupal-autoloader.php
   drupal:
