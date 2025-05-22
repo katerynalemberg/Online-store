@@ -37,6 +37,9 @@ jobs:
       - name: Install composer dependencies
         run: composer install
 
+      - name: Fetch develop
+        run: git fetch origin develop
+
       - name: PHP Code Sniffer
         run: |
           CHANGED_FILES=$(git diff --name-only origin/develop..HEAD)
