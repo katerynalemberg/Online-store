@@ -43,7 +43,7 @@ jobs:
       - name: PHP Code Sniffer
         run: |
           CHANGED_FILES=$(git diff --name-only origin/develop..HEAD)
-          if [-n "$CHANGED_FILES" ]; then
+          if [ -n "$CHANGED_FILES" ]; then
            echo "Changed files:"
            echo "$CHANGED_FILES" | xargs ./vendor/bin/phpcs --standard=Drupal,DrupalPractice
           else
