@@ -38,7 +38,8 @@ jobs:
         run: composer install
 
       - name: PHP Code Sniffer
-        uses: lembergsolutions/automation/.github/workflows/php-code-sniffer.yml@3.x
-#        run: ./vendor/bin/phpcs --standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'
-
+        run: |
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}..HEAD)
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
 
