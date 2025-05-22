@@ -5,49 +5,22 @@ on: pull_request
 jobs:
   composer:
     name: Composer install
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ vars.PHP_VERSION }}
-          tools: composer:${{ vars.COMPOSER_VERSION }}
-
-      - name: Install composer dependencies
-        run: composer install
+    uses: lembergsolutions/automation/.github/workflows/php-composer.yml@3.x
+    with:
+      php_version: ${{ vars.PHP_VERSION }}
+      composer_version: ${{ vars.COMPOSER_VERSION }}
 
   phpcs:
-    name: PHP Code Standards
-    runs-on: ubuntu-latest
+    name: PHP Code Sniffer
+    uses: lembergsolutions/automation/.github/workflows/php-code-sniffer.yml@3.x
+    with:
+      php_version: ${{ vars.PHP_VERSION }}
+      composer_version: ${{ vars.COMPOSER_VERSION }}
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-            php-version: ${{ vars.PHP_VERSION }}
-            tools: composer:${{ vars.COMPOSER_VERSION }}
-
-      - name: Install composer dependencies
-        run: composer install
-
-      - name: Fetch develop
-        run: git fetch origin develop
-
-      - name: PHP Code Sniffer
-        run: |
-          CHANGED_FILES=$(git diff --name-only origin/develop..HEAD)
-          if [ -n "$CHANGED_FILES" ]; then
-           echo "$CHANGED_FILES" | xargs ./vendor/bin/phpcs --standard=Drupal,DrupalPractice
-          else
-           echo "No PHP files changed."
-          fi
+  phpcstan:
+    name: PHP Code Stan
+    uses: lembergsolutions/automation/.github/workflows/php-static-analysis.yml@3.x
+    with:
+      php_version: ${{ vars.PHP_VERSION }}
+      composer_version: ${{ vars.COMPOSER_VERSION }}
 
