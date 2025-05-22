@@ -39,7 +39,7 @@ jobs:
 
       - name: PHP Code Sniffer
         run: |
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}..HEAD)
+          CHANGED_FILES=$(git diff -- name-only origin/develop..HEAD)
           echo "Changed files:"
           echo "$CHANGED_FILES"
 
