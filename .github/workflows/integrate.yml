@@ -27,6 +27,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -44,7 +46,6 @@ jobs:
         run: |
           CHANGED_FILES=$(git diff --name-only origin/develop..HEAD)
           if [ -n "$CHANGED_FILES" ]; then
-           echo "Changed files:"
            echo "$CHANGED_FILES" | xargs ./vendor/bin/phpcs --standard=Drupal,DrupalPractice
           else
            echo "No PHP files changed."
