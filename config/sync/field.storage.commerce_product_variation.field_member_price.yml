@@ -1,13 +1,13 @@
-uuid: da5b3c5b-5e4d-4fcc-82ae-d8f278c1a9a5
-langcode: en-gb
+uuid: f6320f69-5c99-4f2e-9278-b6de836d6f24
+langcode: en
 status: true
 dependencies:
   module:
     - commerce_price
     - commerce_product
-id: commerce_product.field_member_price
+id: commerce_product_variation.field_member_price
 field_name: field_member_price
-entity_type: commerce_product
+entity_type: commerce_product_variation
 type: commerce_price
 settings: {  }
 module: commerce_price

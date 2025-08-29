@@ -4,59 +4,46 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_variation_type.ebook
-    - field.field.commerce_product_variation.ebook.field_tax_number
+    - field.field.commerce_product_variation.ebook.field_member_price
     - field.field.commerce_product_variation.ebook.field_tax_rate
   module:
-    - commerce_order
     - commerce_price
     - commerce_product_tax
-    - commerce_tax
 id: commerce_product_variation.ebook.default
 targetEntityType: commerce_product_variation
 bundle: ebook
 mode: default
 content:
-  field_tax_number:
-    type: commerce_tax_number_default
-    label: above
+  field_member_price:
+    type: commerce_price_default
+    label: inline
     settings:
-      show_verification: false
+      strip_trailing_zeroes: false
+      currency_display: symbol
     third_party_settings: {  }
-    weight: 1
+    weight: 8
     region: content
   field_tax_rate:
     type: commerce_product_tax_rate_percentage
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 2
-    region: content
-  list_price:
-    type: commerce_price_calculated
-    label: above
-    settings:
-      strip_trailing_zeroes: false
-      currency_display: symbol
-      adjustment_types:
-        tax: tax
-        fee: '0'
-        promotion: '0'
-        shipping: '0'
-        shipping_promotion: '0'
-    third_party_settings: {  }
-    weight: -1
+    weight: 7
     region: content
   price:
     type: commerce_price_default
-    label: above
+    label: inline
     settings:
       strip_trailing_zeroes: false
       currency_display: symbol
     third_party_settings: {  }
-    weight: 0
+    weight: 6
     region: content
 hidden:
-  langcode: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  list_price: true
   product_id: true
   sku: true
   title: true

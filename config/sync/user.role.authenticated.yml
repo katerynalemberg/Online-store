@@ -11,9 +11,12 @@ dependencies:
     - commerce_payment
     - commerce_product
     - contact
+    - field_permissions
     - file
     - filter
+    - flag
     - media
+    - profile
     - quiz
     - search
     - shortcut
@@ -28,17 +31,37 @@ permissions:
   - 'access checkout'
   - 'access comments'
   - 'access content'
+  - 'access profile overview'
   - 'access quiz'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'access user profiles'
+  - 'create customer profile'
+  - 'create vendor profile'
+  - 'delete own customer profile'
   - 'delete own files'
+  - 'delete own vendor profile'
+  - 'edit field_seller_rating'
+  - 'flag activate_course'
   - 'manage own commerce_payment_method'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
+  - 'unflag activate_course'
+  - 'update own customer profile'
+  - 'update own vendor profile'
   - 'use text format basic_html'
+  - 'view any customer profile'
+  - 'view any profile'
   - 'view any quiz'
+  - 'view any vendor profile'
   - 'view commerce_product'
+  - 'view field_seller_rating'
   - 'view media'
   - 'view own commerce_order'
+  - 'view own customer profile'
+  - 'view own field_seller_rating'
+  - 'view own profile'
   - 'view own quiz_result'
+  - 'view own unpublished profile'
+  - 'view own vendor profile'
