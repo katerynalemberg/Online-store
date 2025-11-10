@@ -51,6 +51,12 @@ configuration:
       step: review
       weight: 4
       wrapper_element: null
+    payment_process:
+      display_label: null
+      step: payment
+      weight: 5
+      wrapper_element: container
+      capture: true
     paypal_checkout_payment_process:
       display_label: null
       step: payment
@@ -71,7 +77,6 @@ configuration:
       weight: 8
       wrapper_element: null
     order_summary:
-      display_label: null
       step: _sidebar
       weight: 9
       wrapper_element: container
@@ -87,9 +92,3 @@ configuration:
       step: _disabled
       weight: 11
       wrapper_element: fieldset
-    payment_process:
-      display_label: null
-      step: payment
-      weight: 5
-      wrapper_element: container
-      capture: true
