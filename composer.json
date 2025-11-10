@@ -55,7 +55,7 @@
         "build": [
             "composer install",
             "drush cr",
-            "drush up db -y",
+            "drush updb -y",
             "drush cim -y"
         ]
     },
